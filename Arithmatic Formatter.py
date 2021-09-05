@@ -26,20 +26,25 @@ def arithmetic_arranger(problems,show = False):
     second_line = list()
     dashes_line = list()
     answer_line = list()
+    
+    # First Line Calculation.     
     for i in range(0,len(problems)):
         if len(first_numbers[i]) >=len(second_numbers[i]):
             first_line.append("  "+first_numbers[i])
         else:
             first_line.append(" "*(len(second_numbers[i])-len(first_numbers[i])+2)+ first_numbers[i])
-
+        
+    # Second Line Calculation.         
         if len(second_numbers[i])>=len(first_numbers[i]):
             second_line.append(operators[i]+" "+second_numbers[i] )
         else:
             second_line.append(operators[i]+" "*(len(first_numbers[i])-len(second_numbers[i])+1)+second_numbers[i])
-        
+    
+    # Third Line Calculation.     
     for i in range(0,len(first_line)):
         dashes_line.append("-" * (max(len(first_numbers[i]), len(second_numbers[i]))+2))
     
+    # Final Output.     
     if show:
         for i in range(0,len(first_line)):
             if operators[i] == "+":
@@ -49,10 +54,8 @@ def arithmetic_arranger(problems,show = False):
                 ans = int(first_numbers[i])- int(second_numbers[i])
                 answer_line.append((" "*(len(dashes_line[i]) -len(str(ans))))+str(ans))
         arranged_problems = "    ".join(first_line)+"\n"+"    ".join(second_line)+"\n"+"    ".join(dashes_line)+"\n"+"    ".join(answer_line)
-
     else:
         arranged_problems = "    ".join(first_line)+"\n"+"    ".join(second_line)+"\n"+"    ".join(dashes_line)
     return arranged_problems
-
 
 print(arithmetic_arranger(new_list))
