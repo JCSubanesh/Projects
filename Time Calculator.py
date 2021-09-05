@@ -3,19 +3,19 @@ def add_time(start, duration, day = None):
     start_hr,start_min = time.split(":")
     duration_hr,duration_min = duration.split(":")
     
-    # Total Hour and Minute Calculation
+    # Total Hour and Minute Calculation.
     total_min = (int(start_min) + int(duration_min)) % 60
     add_hr = (int(start_min) + int(duration_min)) // 60
     if len(str(total_min)) == 1:
         total_min = "0"+str(total_min)
 
-    # 24 hour clock Format    
+    # 24 hour clock Format.   
     total_hr =int()
     if midday == "PM":
         start_hr = int(start_hr)+ 12
     total_hr = int(start_hr) + int(duration_hr) + add_hr 
     
-    # 12 hour clock Format
+    # 12 hour clock Format.
     twelve_hr = (total_hr % 24) % 12
     if twelve_hr == 0:
         twelve_hr = 12
@@ -26,7 +26,6 @@ def add_time(start, duration, day = None):
     else:
         midday = "PM"
 
-    # print(twelve_hr,total_min,midday)
     num_of_days = total_hr // 24
     future_days =""
     if num_of_days == 0:
@@ -38,8 +37,9 @@ def add_time(start, duration, day = None):
     
     total_days = {1:"Sunday",2:"Monday",3:"Tuesday",4:"Wednesday",5:"Thursday",6:"Friday",7:"Saturday"}
     reverse_total_days = {"SUNDAY":1 ,"MONDAY":2,"TUESDAY":3,"WEDNESDAY":4,"THURSDAY":5,"FRIDAY":6,"SATURDAY":7}
+    
+    # Final Output.     
     new_time =""
-
     if day != None:
         new_time = (str(twelve_hr) +":"+str(total_min)+" "+ midday +", "+total_days[(num_of_days+reverse_total_days[str(day).upper()])%7]+" "+str(future_days)).strip()
     elif num_of_days == 0:
