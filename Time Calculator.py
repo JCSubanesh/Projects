@@ -38,7 +38,6 @@ def add_time(start, duration, day = None):
     
     total_days = {1:"Sunday",2:"Monday",3:"Tuesday",4:"Wednesday",5:"Thursday",6:"Friday",7:"Saturday"}
     reverse_total_days = {"SUNDAY":1 ,"MONDAY":2,"TUESDAY":3,"WEDNESDAY":4,"THURSDAY":5,"FRIDAY":6,"SATURDAY":7}
-    reverse_total_days 
     new_time =""
 
     if day != None:
